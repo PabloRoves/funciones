@@ -1,8 +1,6 @@
 """Prueba de funcion Cuadrática"""
 
 from math import sqrt
-from matplotlib import pyplot as plt
-import numpy as np
 
 # Crear una función para resolver una ecuación cuadrática.
 # a*x^2 + b* + c = 0
@@ -10,64 +8,101 @@ import numpy as np
 
 
 # print("Función cuadratica")
-def resolver_ecuacion(argA, argB, argC):
-    determinante = argB**2 - 4*argA*argC
+def obtener_raices(arga, argb, argc):
+    """
+    Resuelve una ecuación cuadrática de la forma ax^2 + bx + c = 0 y devuelve las soluciones.
+
+    Calcula las soluciones de la ecuación cuadrática utilizando la fórmula general:
+        x1 = (-b + sqrt(b^2 - 4ac)) / (2a)
+        x2 = (-b - sqrt(b^2 - 4ac)) / (2a)
+
+    Parámetros
+    ----------
+    arga : float
+        Coeficiente 'a' de la ecuación cuadrática.
+    argb : float
+        Coeficiente 'b' de la ecuación cuadrática.
+    argc : float
+        Coeficiente 'c' de la ecuación cuadrática.
+
+    Returns
+    -------
+    tuple
+        Una tupla que contiene las soluciones de la ecuación cuadrática. Dependiendo del 
+        valor del determinante (b^2 - 4ac):
+        - Si el determinante es mayor que 0, devuelve las dos soluciones reales distintas (x1, x2).
+        - Si el determinante es igual a 0, devuelve una única solución real doble (x1,).
+        - Si el determinante es menor que 0, devuelve una tupla vacía () indicando que no hay 
+        soluciones reales.
+
+    Librerías
+    ---------
+    - math.sqrt para calcular la raíz cuadrada.
+    """
+    determinante = argb**2 - 4*arga*argc
 
     if determinante > 0:
-        x_1 = -argB + sqrt(argB**2 - 4*argA*argC) / (2*argA)
-        x_2 = -argB + sqrt(argB**2 - 4*argA*argC) / (2*argA)
+        x_1 = -argb + sqrt(argb**2 - 4*arga*argc) / (2*arga)
+        x_2 = -argb + sqrt(argb**2 - 4*arga*argc) / (2*arga)
         return x_1, x_2
-    elif determinante == 0:
-        x_1 = -argB / (2*argA)
+
+    if determinante == 0:
+        x_1 = -argb / (2*arga)
         return (x_1,)
-    else:
-        return tuple()
+
+    return tuple()
 
 
 def mostrar_ecuacion():
+    """
+    Solicita al usuario los coeficientes de una ecuación cuadrática, la resuelve 
+    y muestra la ecuación en formato estándar.
 
+    Esta función solicita al usuario que ingrese los coeficientes 'a', 'b' y 'c' 
+    de una ecuación cuadrática (ax^2 + bx + c = 0), los convierte a enteros, resuelve 
+    la ecuación utilizando la función 'resolver_ecuacion()', y luego imprime la 
+    solución y la ecuación en formato estándar 'y = ax^2 + bx + c'.
+
+    Parameters
+    ----------
+    None
+
+    Returns
+    -------
+    None
+
+    Notes
+    -----
+    - Utiliza la función 'resolver_ecuacion()' para obtener las raíces de la ecuación.
+    - Muestra la ecuación en formato estándar 'y = ax^2 + bx + c'.
+    """
     print("Ingresa los coeficientes")
-    cA = input()
-    cB = input()
-    cC = input()
-    print(resolver_ecuacion(int(cA), int(cB), int(cC)))
+    ca = input()
+    cb = input()
+    cc = input()
+    print(obtener_raices(int(ca), int(cb), int(cc)))
 
-    ECUACION = "y="
+    ecuacion = "y="
 
-    if int(cA) > 1:
-        ECUACION += cA
-    ECUACION += "x^2"
+    if int(ca) > 1:
+        ecuacion += ca
+    ecuacion += "x^2"
 
-    if int(cB) > 0:
-        ECUACION += "+"
-        if int(cB) != 1:
-            ECUACION += cB
-    elif int(cB) < 0:
-        ECUACION += cB
+    if int(cb) > 0:
+        ecuacion += "+"
+        if int(cb) != 1:
+            ecuacion += cb
+    elif int(cb) < 0:
+        ecuacion += cb
 
-    ECUACION += "x"
+    ecuacion += "x"
 
-    if int(cC) > 0:
-        ECUACION += "+"+cC
-    elif int(cC) < 0:
-        ECUACION += cC
+    if int(cc) > 0:
+        ecuacion += "+"+cc
+    elif int(cc) < 0:
+        ecuacion += cc
 
-    print(ECUACION)
-
-
-def funcion_parabola():
-    x = np.linspace(-4, 4, 100)
-    y = (x**2)
-    plt.plot(x, y)
-    plt.xlabel("x axis")
-    plt.ylabel("y axis")
-    v = [-5, 5, 0, 10]
-    plt.axis(v)
-    print(x)
-    plt.grid()
-    plt.show()
+    print(ecuacion)
 
 
-# mostrar_ecuacion()
-# funcion_lineal()
-funcion_parabola()
+mostrar_ecuacion()

@@ -6,23 +6,23 @@ import numpy as np
 
 
 class Cuadratica:
+    """clase para graficar funciones cuadraticas"""
 
-    # Calculo los posibles X y los devuelvo
-    def obtenerX(argA, argB, argC):
-        determinante = argB**2 - 4*argA*argC
+    def obtenerx(self, arga, argb, argc):
+        """Calculo los posibles X y los devuelvo"""
 
+        determinante = argb**2 - 4*arga*argc
         if determinante > 0:
-            x_1 = (-argB - sqrt(argB**2 - 4*argA*argC)) / (2*argA)
-            x_2 = (-argB + sqrt(argB**2 - 4*argA*argC)) / (2*argA)
+            x_1 = (-argb - sqrt(argb**2 - 4*arga*argc)) / (2*arga)
+            x_2 = (-argb + sqrt(argb**2 - 4*arga*argc)) / (2*arga)
             return x_1, x_2
-        elif determinante == 0:
-            x_1 = -argB / (2*argA)
-            return (x_1)
-        else:
-            return tuple()
+        if determinante == 0:
+            x_1 = -argb / (2*arga)
+            return x_1
+        return tuple()
 
-    # Arma la ecuación y la devuelve como string
-    def mostrarEcuacion(cA, cB, cC):
+    def mostrarEcuacion(self, cA, cB, cC):
+        """Arma la ecuación y la devuelve como string"""
         ECUACION = "y="
 
         if cA != 1:
@@ -45,20 +45,20 @@ class Cuadratica:
 
         return ECUACION
 
-    def graficar(cA, cB, cC):
-        valores = Cuadratica.obtenerX(cA, cB, cC)
+    # def graficar(self, cA, cB, cC):
+    #     valores = Cuadratica.obtenerX(cA, cB, cC)
 
-        if cA == 0:
-            print("El primer coeficiente no puede ser 0")
-            return
+    #     if cA == 0:
+    #         print("El primer coeficiente no puede ser 0")
+    #         return
 
-        x = np.linspace(-4, 4, 50)
-        y = cA*x**2+cB*x+cC
-        plt.plot(x, y)
-        plt.xlabel("x axis")
-        plt.ylabel("y axis")
-        v = [-10, 10, -10, 10]
-        plt.axis(v)
-        # print(x)
-        plt.grid()
-        plt.show()
+    #     x = np.linspace(-4, 4, 50)
+    #     y = cA*x**2+cB*x+cC
+    #     plt.plot(x, y)
+    #     plt.xlabel("x axis")
+    #     plt.ylabel("y axis")
+    #     v = [-10, 10, -10, 10]
+    #     plt.axis(v)
+    #     # print(x)
+    #     plt.grid()
+    #     plt.show()
