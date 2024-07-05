@@ -1,5 +1,29 @@
-"""ecuaciones_cuadraticas"""
+"""
+Módulo para trabajar con ecuaciones cuadráticas y graficar funciones cuadráticas.
 
+Este módulo contiene la definición de la clase Cuadratica, que permite calcular las raíces,
+obtener la expresión general y graficar funciones cuadráticas de la forma ax^2 + bx + c.
+
+Clase:
+- Cuadratica: Permite trabajar con ecuaciones cuadráticas, calcular raíces, 
+obtener la expresión general y graficar la función.
+
+Métodos:
+- __init__: Inicializa la clase Cuadratica con los coeficientes 'a', 'b' y 'c' 
+de la ecuación cuadrática.
+- obtener_raices: Calcula las raíces de la ecuación cuadrática utilizando la fórmula general.
+- expresion_general: Devuelve la ecuación cuadrática en formato estándar 'y = ax^2 + bx + c'.
+- graficar: Grafica la función cuadrática utilizando matplotlib y numpy.
+
+Librerías requeridas:
+- math.sqrt: Para calcular la raíz cuadrada necesaria en el método obtener_raices.
+- matplotlib.pyplot como plt: Para generar las gráficas de las funciones cuadráticas.
+- numpy como np: Para realizar operaciones numéricas y generar datos para las gráficas.
+
+Ejemplo de uso:
+Consultar el archivo main.py para ver ejemplos de cómo utilizar la clase Cuadratica.
+
+"""
 from math import sqrt
 from matplotlib import pyplot as plt
 import numpy as np

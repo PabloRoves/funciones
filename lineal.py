@@ -1,6 +1,22 @@
-"""Prueba de funcion lineal"""
+"""
+Archivo de ejemplo para graficar una función lineal utilizando matplotlib y numpy.
 
-# from math import sqrt
+Este archivo contiene una función llamada funcion_lineal que genera y muestra
+una gráfica de una ecuación lineal utilizando las bibliotecas matplotlib y numpy.
+
+Bibliotecas requeridas:
+- matplotlib
+- numpy
+
+Funciones definidas:
+- funcion_lineal(): Genera y muestra una gráfica de una ecuación lineal.
+
+Este archivo se puede ejecutar para visualizar la gráfica de la función lineal.
+
+Ejemplo de uso:
+>>> python archivo_ejemplo.py
+
+"""
 import matplotlib.pyplot as plt
 import numpy as np
 
