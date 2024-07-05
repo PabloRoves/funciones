@@ -2,8 +2,6 @@
 import lineal as Lineal
 from cuadratica import Cuadratica
 import parabola as Parabola
-# from Cuadratica import "obtenerX"
-
 
 # Funciones lineales
 # ----------------------
@@ -13,13 +11,14 @@ import parabola as Parabola
 # Funciones cuadratica
 # ---------------------
 print("Ingresa los coeficientes")
-ca = input()
-cb = input()
-cc = input()
+ca = int(input())
+cb = int(input())
+cc = int(input())
 
 cuadratica1 = Cuadratica(ca, cb, cc)
-print(cuadratica1)
-
+print(cuadratica1.obtener_raices())
+print(cuadratica1.expresion_general())
+cuadratica1.graficar()
 # cuadratica2 = Cuadratica()
 
 # ECUACION2 = cuadratica2.expresion_general(ca, cb, cc)
@@ -36,4 +35,4 @@ print(cuadratica1)
 # Parabolas
 # ----------
 
-# parabola1.funcion_parabola()
+# Parabola.funcion_parabola()

@@ -9,58 +9,57 @@ class Cuadratica:
     """clase para graficar funciones cuadraticas"""
 
     def __init__(self, arga, argb, argc):
-        if int(arga) == 0:
-            raise ValueError("El primer coeficiente no puede ser 0")
+        try:
+            self.ca = int(arga)
+            self.cb = int(argb)
+            self.cc = int(argc)
 
-        self.ca = arga
-        self.cb = argb
-        self.cc = argc
+        except ValueError as exc:
+            raise ValueError("Los coéficientes deben ser números.") from exc
 
-    def obtener_raices(self, arga, argb, argc):
+        if self.ca == 0:
+            raise ValueError("El primer coeficiente no puede ser 0.")
+
+    def obtener_raices(self):
         """
-        Resuelve una ecuación cuadrática de la forma ax^2 + bx + c = 0 y devuelve las soluciones.
+        Calcula las raíces de una ecuación cuadrática de la forma ax^2 + bx + c = 0 y devuelve las soluciones.
 
-        Calcula las soluciones de la ecuación cuadrática utilizando la fórmula general:
+        Utiliza los coeficientes 'ca', 'cb' y 'cc' almacenados en el objeto actual (self) para calcular las raíces 
+        de la ecuación cuadrática utilizando la fórmula general:
             x1 = (-b + sqrt(b^2 - 4ac)) / (2a)
             x2 = (-b - sqrt(b^2 - 4ac)) / (2a)
-
-        Parámetros
-        ----------
-        arga : float
-            Coeficiente 'a' de la ecuación cuadrática.
-        argb : float
-            Coeficiente 'b' de la ecuación cuadrática.
-        argc : float
-            Coeficiente 'c' de la ecuación cuadrática.
 
         Returns
         -------
         tuple
-            Una tupla que contiene las soluciones de la ecuación cuadrática. Dependiendo del 
-            valor del determinante (b^2 - 4ac):
+            Una tupla que contiene las soluciones de la ecuación cuadrática. Dependiendo del valor del determinante (b^2 - 4ac):
             - Si el determinante es mayor que 0, devuelve las dos soluciones reales distintas (x1, x2).
-            - Si el determinante es igual a 0, devuelve una única solución real doble (x1,).
-            - Si el determinante es menor que 0, devuelve una tupla vacía () indicando que no hay 
-            soluciones reales.
-
-        Librerías
-        ---------
-        - math.sqrt para calcular la raíz cuadrada.
+            - Si el determinante es igual a 0, devuelve una única solución real doble (x1, x1).
+            - Si el determinante es menor que 0, devuelve una tupla vacía () indicando que no hay soluciones reales.
         """
-        determinante = argb**2 - 4*arga*argc
+
+        ca = self.ca
+        cb = self.cb
+        cc = self.cc
+
+        determinante = cb**2 - 4*ca*cc
 
         if determinante > 0:
-            x_1 = -argb + sqrt(argb**2 - 4*arga*argc) / (2*arga)
-            x_2 = -argb + sqrt(argb**2 - 4*arga*argc) / (2*arga)
-            return x_1, x_2
+            x_1 = (-cb + sqrt(cb**2 - 4*ca*cc)) / (2*ca)
+            x_2 = (-cb - sqrt(cb**2 - 4*ca*cc)) / (2*ca)
+            y_1 = ca*x_1**2+cb*x_1+cc
+            y_2 = ca*x_2**2+cb*x_2+cc
+
+            return ([x_1, y_1], [x_2, y_2])
 
         if determinante == 0:
-            x_1 = -argb / (2*arga)
-            return (x_1,)
+            x = -cb / (2*ca)
+            y = ca*x**2+cb*x+cc
+            return ([x, y])
 
         return tuple()
 
-    def expresion_general(self, ca, cb, cc):
+    def expresion_general(self):
         """
         Solicita al usuario los coeficientes de una ecuación cuadrática, la resuelve 
         y muestra la ecuación en formato estándar.
@@ -83,30 +82,33 @@ class Cuadratica:
         - Utiliza la función 'resolver_ecuacion()' para obtener las raíces de la ecuación.
         - Muestra la ecuación en formato estándar 'y = ax^2 + bx + c'.
         """
+        ca = self.ca
+        cb = self.cb
+        cc = self.cc
 
         ecuacion = "y="
 
-        if int(ca) > 1:
-            ecuacion += ca
+        if ca > 1:
+            ecuacion += str(ca)
         ecuacion += "x^2"
 
-        if int(cb) > 0:
+        if cb > 0:
             ecuacion += "+"
-            if int(cb) != 1:
-                ecuacion += cb
-        elif int(cb) < 0:
-            ecuacion += cb
+            if cb != 1:
+                ecuacion += str(cb)
+        elif cb < 0:
+            ecuacion += str(cb)
 
         ecuacion += "x"
 
-        if int(cc) > 0:
-            ecuacion += "+"+cc
-        elif int(cc) < 0:
-            ecuacion += cc
+        if cc > 0:
+            ecuacion += "+"+str(cc)
+        elif cc < 0:
+            ecuacion += str(cc)
 
         return ecuacion
 
-    def graficar(self, ca, cb, cc):
+    def graficar(self):
         """
         Grafica una función cuadrática de la forma y = ax^2 + bx + c.
 
@@ -136,12 +138,9 @@ class Cuadratica:
         - matplotlib.pyplot como plt
         - numpy como np
         """
-
-        # RAICES = Cuadratica.obtener_raices(self, ca, cb, cc)
-
-        if ca == 0:
-            print("El primer coeficiente no puede ser 0")
-            return
+        ca = self.ca
+        cb = self.cb
+        cc = self.cc
 
         x = np.linspace(-4, 4, 50)
         y = ca*x**2+cb*x+cc
