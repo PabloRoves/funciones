@@ -1,15 +1,29 @@
 """Pruebas de funciones"""
-import ecuacionlineal as lineal
-import parabola as parabola1
+import lineal as Lineal
+from cuadratica import Cuadratica
+import parabola as Parabola
+# from Cuadratica import "obtenerX"
 
 
 # Funciones lineales
-lineal.funcion_lineal()
+# ----------------------
+# Lineal.funcion_lineal()
 
 
 # Funciones cuadratica
+# ---------------------
+print("Ingresa los coeficientes")
+ca = input()
+cb = input()
+cc = input()
 
-# from Cuadratica import "obtenerX"
+cuadratica1 = Cuadratica(ca, cb, cc)
+print(cuadratica1)
+
+# cuadratica2 = Cuadratica()
+
+# ECUACION2 = cuadratica2.expresion_general(ca, cb, cc)
+# print(ECUACION2)
 
 # A = -20
 # B = 10
@@ -20,5 +34,6 @@ lineal.funcion_lineal()
 # Cuadratica.graficar(A, B, C)
 
 # Parabolas
+# ----------
 
-parabola1.funcion_parabola()
+# parabola1.funcion_parabola()
