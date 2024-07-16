@@ -1,39 +1,39 @@
-# Proyecto de Funciones Matemáticas
+# Project of Mathematical Functions
 
-Este proyecto en Python permite trabajar con funciones matemáticas, específicamente ecuaciones lineales y cuadráticas. Utiliza las bibliotecas matplotlib, numpy y math para graficar funciones y calcular raíces de ecuaciones cuadráticas.
+This Python project enables working with mathematical functions, specifically linear and quadratic equations. It utilizes the matplotlib, numpy, and math libraries for plotting functions and calculating roots of quadratic equations.
 
-## Estructura del Proyecto
+## Project Structure
 
-El proyecto está organizado en tres archivos principales:
+The project is organized into three main files:
 
-- lineal.py: Contiene una función para graficar ecuaciones lineales.
-- cuadratica.py: Define la clase Cuadratica para trabajar con ecuaciones cuadráticas, incluyendo métodos para calcular raíces, obtener la expresión general y graficar la función.
-- main.py: Archivo principal donde se realizan pruebas y se utiliza tanto lineal.py como cuadratica.py.
+- lineal.py: Contains a function to plot linear equations.
+- cuadratica.py: Defines the Cuadratica class for working with quadratic equations, including methods to calculate roots, obtain the general expression, and plot the function.
+- main.py: Main file for testing and utilizing both lineal.py and cuadratica.py.
 
-## Instalación de Dependencias
+## Installing Dependencies
 
-Para utilizar este proyecto, asegúrate de tener instaladas las siguientes bibliotecas:
+To use this project, make sure you have the following libraries installed:
 
 ```bash
 pip install matplotlib numpy
 ```
 
-## Uso del Proyecto
+## Project Usage
 
-### Funciones Lineales
+### Linear Functions
 
-En lineal.py, se encuentra la función funcion_lineal que genera y muestra gráficas de ecuaciones lineales. A continuación, un ejemplo de cómo utilizarla:
+In lineal.py, the funcion_lineal function generates and displays plots of linear equations. Below is an example of how to use it:
 
 ```python
 import lineal as Lineal
 
-# Graficar una función lineal
+# Plot a linear function
 Lineal.funcion_lineal()
 ```
 
-### Funciones Cuadráticas
+### Quadratic Functions
 
-En cuadratica.py, se define la clase Cuadratica que permite trabajar con ecuaciones cuadráticas. Aquí tienes un ejemplo de cómo utilizar esta clase desde main.py:
+In cuadratica.py, the Cuadratica class allows working with quadratic equations. Here's an example of using this class from main.py:
 
 ```python
 from cuadratica import Cuadratica
@@ -55,29 +55,22 @@ print("Expresión general de la ecuación cuadrática:", cuadratica1.expresion_g
 cuadratica1.graficar()
 ```
 
-### Ejecución
+### Execution
 
-Para ejecutar el archivo main.py y ver los resultados, simplemente ejecuta el siguiente comando:
+To run the main.py file and see the results, simply execute the following command:
 
 ```bash
 python main.py
 ```
 
-## Contribución
+## Contribution
 
-Si deseas contribuir a este proyecto, por favor sigue los siguientes pasos:
+We welcome contributions to improve this project! Please create pull requests on GitHub.
 
-1. Haz un fork del repositorio.
-2. Clona el repositorio a tu máquina local.
-3. Crea una nueva rama (git checkout -b feature/nueva-funcionalidad).
-4. Haz tus cambios y haz commit de ellos (git commit -am 'Añade nueva funcionalidad').
-5. Sube los cambios a tu repositorio fork (git push origin feature/nueva-funcionalidad).
-6. Envía un pull request para revisar los cambios.
+## Credits
 
-## Créditos
+This project uses the matplotlib, numpy, and math libraries for mathematical operations and plotting.
 
-Este proyecto utiliza las bibliotecas matplotlib, numpy y math para realizar operaciones matemáticas y gráficas.
+## License
 
-## Licencia
-
-Este proyecto está licenciado bajo Licencia MIT.
+This project is licensed under the MIT License.
