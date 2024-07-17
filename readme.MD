@@ -2,15 +2,7 @@
 
 This Python project enables working with mathematical functions, specifically linear and quadratic equations. It utilizes the matplotlib, numpy, and math libraries for plotting functions and calculating roots of quadratic equations.
 
-## Project Structure
-
-The project is organized into three main files:
-
-- lineal.py: Contains a function to plot linear equations.
-- cuadratica.py: Defines the Cuadratica class for working with quadratic equations, including methods to calculate roots, obtain the general expression, and plot the function.
-- main.py: Main file for testing and utilizing both lineal.py and cuadratica.py.
-
-## Installing Dependencies
+## Installation and Setup
 
 To use this project, make sure you have the following libraries installed:
 
@@ -18,7 +10,7 @@ To use this project, make sure you have the following libraries installed:
 pip install matplotlib numpy
 ```
 
-## Project Usage
+## Usage
 
 ### Linear Functions
 
@@ -63,13 +55,21 @@ To run the main.py file and see the results, simply execute the following comman
 python main.py
 ```
 
-## Contribution
+## Project Structure
 
-We welcome contributions to improve this project! Please create pull requests on GitHub.
+The project is organized into three main files:
+
+- lineal.py: Contains a function to plot linear equations.
+- cuadratica.py: Defines the Cuadratica class for working with quadratic equations, including methods to calculate roots, obtain the general expression, and plot the function.
+- main.py: Main file for testing and utilizing both lineal.py and cuadratica.py.
 
 ## Credits
 
 This project uses the matplotlib, numpy, and math libraries for mathematical operations and plotting.
+
+## Contribution
+
+We welcome contributions to improve this project! Please create pull requests on GitHub.
 
 ## License
 
